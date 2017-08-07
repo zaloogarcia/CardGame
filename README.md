@@ -9,24 +9,24 @@ OCaml's toolset includes an interactive top-level interpreter, a bytecode compil
 OCaml is a free and open-source software project managed and principally maintained by French Institute for Research in Computer Science and Automation (INRIA). In the early 2000s, many new languages adopted elements from OCaml, most notably F# and Scala.
 
 
-![Ocaml.jpg](http://wesphelan.com/wp-content/uploads/2014/11/ATBCamel2.jpg)
+![Ocaml.jpg](http://www.liveanimalslist.com/mammals/images/camel-in-the-desert-area.jpg)
 
 ---
-## Informacion:
+## Information:
 
 In this project, A game with spanish cards was implented where 2 to 5 players can play. The rules are explained in the next link. [**link**][G].
-The game has 4 data types, **card**, **deck**, **player** and **round**. Where 'card' and 'deck' are written in the file **src/cartas.ml**, and 'player' in **src/jugador.mli** y la ronda en **round.ml**, cada archivo su respectivo **.mli**. Y en **main.ml** se lleva a cabo las llamadas de todas las funciones de los archivos.
-
+The code of game has 4 data types, **card**, **deck**, **player** and **round**. Where 'card' and 'deck' are written in the file **cartas.ml**, and 'player' in **jugador.mli** and the round in  **round.ml**, each file with its own **.mli**. and  **main.ml** will call all the functions from the others files.
 ---
 ## cartas.ml
 
 In this file the structure of the cards and the deck where developed using Ocaml **records**. The cards where defined with two arguments, an integer (for the future comparisons between cards) and the other argument with '**suit**' type for the type of card. To sum up, a card should look like this:
 
 `carta = {value = 1; suit = Espada}`   
-
-![cartas-espanolas.jpg](https://alastairsavage.files.wordpress.com/2012/10/spanish-playing-cards.jpg)
+x`
+![cartas-espanolas.jpg](http://cdn-3.lanzaroteinformation.com/files/images/Baraja%2040%20cards.preview.jpg)
   
-y luego, basicamente definimos a la baraja como una lista de cartas que se crea concatenando y mapeando los tipos:  
+And then basically the deck is defined as a list of cards that are concatenated:
+
    
 `let full_deck =
   let make_value_cards num =
@@ -34,26 +34,27 @@ y luego, basicamente definimos a la baraja como una lista de cartas que se crea 
   in
   specials @ (List.concat (List.map make_value_cards values))
   `   
-     
-La forma de entregar cartas aleatorias del mazo a cada jugador que escojimos fue tomar la primera carta de una baraja ya mezclada, ya que teniamos dos formas de implementarlo, esta o tomar una carta aleatoria de la baraja, Ambas formas de implementar eran de una complejidad parecidas, entonces decidimos la primera (Nos parecio mas "natural").  
-Ahora las **Cartas especiales**, las definimos como una carta con valor "-1" y su respectivo palo (**MAX**, **MIN**, **PAR**, etc). Porque "-1"?, bueno principalmente necesitabamos un numero que no sea un posible maximal y que no sea par para que no haya problemas con las cartas **MAX** y **PAR**, asique cualquier numero impar negativo nos era util. Las cartas especiales, definidas una por una dentro de una lista, se agregan a la baraja antes de mezclarse.  
-  
-En este archivo se utilizaron los siguientes modulos de Ocaml:     
  
- * [**Pervasives**][P]: para las excepciones y las impresiones en pantalla.
- * [**List**][L]: para las mayoria de las funciones.
- * [**Random**][R]: para mezclar la baraja. 
+The way of delivering the cards to the players in a randomly is taking the first cards from the deck that is already randomly sorted (Is the natural way).  
+Each **special cards** has their arguments like this, its integer is '-1' and its suit can  be **MAX**, **MIN**, **PAR**, etc. Why"-1"?, because cant be a neither a maximal integer neither a even number, because it could be errors with the cards **MAX** and **PAR**. Special cards are built one per one and then are added to the deck before this is sorted.
+ 
+The following modules of Ocaml were used in this file:  
+
+ * [**Pervasives**][P]: for the exceptions and the print outs.
+ * [**List**][L].
+ * [**Random**][R]: for ramdomly sort the deck.
  * [**String**][S].
    
 ---
 ## jugador.ml  
   
-En este archivo implementamos la estructura del jugador (**player**) tambien con los **records** de **Ocaml**. Definimos a jugador como una estructura de 4 campos, un *String* para el nombre , un entero para su puntaje y dos listas tipo **deck** (baraja), una para la baraja que tendria en mano y otra para guardar las cartas que ya haya jugado. Entonces un jugador seria por ejemplo:   
+In this file the **player** structure was defined with the Ocaml's **records**. A player will have 4 arguments, the name (*string*), an integer for the score  and 2 **deck** lists (one for the cards that the player didn't played and the other for the cards that the player already played).
+Well, a player should look like:
    
 `{name = "Pampita"; points = 0; cards = [{value = 1; suit = Espada}]; played = empty_deck}`   
    
-Luego se implementaron distintas funciones para entregar una carta a un jugador , Inicializar un jugador, Imprimir sus puntos y cartas jugadas, etc.  
-Que fueron desarrollados sin dificultad con la ayuda de los **Records** de Ocaml.  
+And then the functions for delivering a card to a player, initialize a player and print their points and played cards where defined.
+It was really easy to defined them due to the concept of the Ocaml **Records**.
 Tambien en este archivo se desarrollo la funcion de cada *carta especial*, fue trabajoso y la funcion no quedo bien esteticamente (50 lineas aprox de codigo repetitivo) pero en ella se modifica el jugador y la baraja general de acuerdo a que carta especial se invoco, y despues de que se juega una carta especial, el jugador termina su turno y se le otorga una carta. 
   
 En este archivo se utilizaron los siguientes modulos de Ocaml e implementados:  
