@@ -1,33 +1,30 @@
-# **Ocaml**
+# **Card game**
 
-### Laboratorio 3   
-###### Daniel Bauer, Gonzalo Garcia.   
 ---
-## Introduccion:
+## Introduction:
+OCaml, originally named [Objective Caml][O], is the main implementation of the programming language Caml. A member of the ML language family, OCaml extends the core Caml language with object-oriented programming constructs.
 
-El lenguaje Objective CAML, también llamado [Ocaml][O] u O'Caml, el nombre proviene de las siglas en inglés Objective Categorical Abstract Machine Language. Es un lenguaje de programación avanzado de la familia de los lenguajes ML, desarrollado y distribuido por el INRIA en Francia. Ocaml admite los paradigmas de programación imperativa, programación funcional y programación orientada a objetos.
-Ocaml nace de la evolución del lenguaje CAML, abreviación de Categorical Abstract Machine Language, al integrársele la programación con objetos.1
+OCaml's toolset includes an interactive top-level interpreter, a bytecode compiler, a reversible debugger, a package manager (OPAM), and an optimizing native code compiler. It has a large standard library, making it useful for many of the same applications as Python or Perl, and has robust modular and object-oriented programming constructs that make it applicable for large-scale software engineering. OCaml is the successor to Caml Light. The acronym CAML originally stood for Categorical Abstract Machine Language, although OCaml omits this abstract machine.
 
-El código fuente en Ocaml se compila en código para una máquina virtual o en código de máquina para diferentes arquitecturas. Este último compilador produce código comparable en eficiencia al producido por compiladores como el del lenguaje C/C++.
+OCaml is a free and open-source software project managed and principally maintained by French Institute for Research in Computer Science and Automation (INRIA). In the early 2000s, many new languages adopted elements from OCaml, most notably F# and Scala.
 
-Ocaml dispone de un análisis de tipos estático con inferencia de tipos, con valores funcionales de primera clase, polimorfismo parametrizado, llamada por patrones, manejo de excepciones, recolección de basura y otras características avanzadas.
 
-![Ocaml.jpg](https://bitbucket.org/repo/77n99n/images/554043533-Ocaml.jpg)
+![Ocaml.jpg](http://wesphelan.com/wp-content/uploads/2014/11/ATBCamel2.jpg)
 
 ---
 ## Informacion:
 
-En este laboratorio se desarrollo un juego de cartas españolas, de 2 a 5 jugadores. con las reglas especificadas en [**grupo00**][G].
-La organizacion del codigo es igual al del proyecto anterior (/src /bin).  
-Para llevar a cabo el Juego, se tuvo que implementar 4 tipos de datos, **card**, **deck**, **player** y **round** para las cartas, barajas ,jugadores y la rondas respectivamente. Donde card y deck estan implementados en **cartas.ml**, jugador en **jugador.mli** y la ronda en **round.ml**, cada archivo su respectivo **.mli**. Y en **main.ml** se lleva a cabo las llamadas de todas las funciones de los archivos.
+In this project, A game with spanish cards was implented where 2 to 5 players can play. The rules are explained in the next link. [**link**][G].
+The game has 4 data types, **card**, **deck**, **player** and **round**. Where 'card' and 'deck' are written in the file **src/cartas.ml**, and 'player' in **src/jugador.mli** y la ronda en **round.ml**, cada archivo su respectivo **.mli**. Y en **main.ml** se lleva a cabo las llamadas de todas las funciones de los archivos.
 
 ---
 ## cartas.ml
 
-En este archivo desarrollamos la estructura de las cartas y la baraja (**cards** y **deck**) con los **records** de **Ocaml**. Definimos a cartas como una estructura de dos campos, un entero por su numero (para que la comparacion sea menos "tediosa" de implementar) y un tipo **suit** para el palo. Entonces una carta seria por ejemplo:   
+In this file the structure of the cards and the deck where developed using Ocaml **records**. The cards where defined with two arguments, an integer (for the future comparisons between cards) and the other argument with '**suit**' type for the type of card. To sum up, a card should look like this:
+
 `carta = {value = 1; suit = Espada}`   
-     
-![cartas-espanolas.jpg](https://bitbucket.org/repo/77n99n/images/2176868946-cartas-espanolas.jpg)
+
+![cartas-espanolas.jpg](https://alastairsavage.files.wordpress.com/2012/10/spanish-playing-cards.jpg)
   
 y luego, basicamente definimos a la baraja como una lista de cartas que se crea concatenando y mapeando los tipos:  
    
@@ -125,7 +122,7 @@ En este archivo se utilizaron los siguientes modulos de Ocaml e implementados:
 [R]:<http://caml.inria.fr/pub/docs/manual-ocaml/libref/Random.html> 
 [L]:<http://caml.inria.fr/pub/docs/manual-ocaml/libref/List.html>  
 [P]:<http://caml.inria.fr/pub/docs/manual-ocaml/libref/Pervasives.html>
-[G]:<https://bitbucket.org/paradigmas-programacion-famaf/grupo00/src/c54418431018c1cb652e4278d4f829a2f9cfa3d8/Lab3/consignas.md?at=master&fileviewer=file-view-default>
+[G]:<https://github.com/georgealegre/ocamlFunctionalWar/blob/master/doc/consignas.md>
 
 
 
