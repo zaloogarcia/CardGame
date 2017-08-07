@@ -1,7 +1,7 @@
-#**Ocaml**
+# **Ocaml**
 
-###Laboratorio 3   
-######Daniel Bauer, Gonzalo Garcia.   
+### Laboratorio 3   
+###### Daniel Bauer, Gonzalo Garcia.   
 ---
 ## Introduccion:
 
@@ -15,14 +15,14 @@ Ocaml dispone de un análisis de tipos estático con inferencia de tipos, con va
 ![Ocaml.jpg](https://bitbucket.org/repo/77n99n/images/554043533-Ocaml.jpg)
 
 ---
-##Informacion:
+## Informacion:
 
 En este laboratorio se desarrollo un juego de cartas españolas, de 2 a 5 jugadores. con las reglas especificadas en [**grupo00**][G].
 La organizacion del codigo es igual al del proyecto anterior (/src /bin).  
 Para llevar a cabo el Juego, se tuvo que implementar 4 tipos de datos, **card**, **deck**, **player** y **round** para las cartas, barajas ,jugadores y la rondas respectivamente. Donde card y deck estan implementados en **cartas.ml**, jugador en **jugador.mli** y la ronda en **round.ml**, cada archivo su respectivo **.mli**. Y en **main.ml** se lleva a cabo las llamadas de todas las funciones de los archivos.
 
 ---
-##cartas.ml
+## cartas.ml
 
 En este archivo desarrollamos la estructura de las cartas y la baraja (**cards** y **deck**) con los **records** de **Ocaml**. Definimos a cartas como una estructura de dos campos, un entero por su numero (para que la comparacion sea menos "tediosa" de implementar) y un tipo **suit** para el palo. Entonces una carta seria por ejemplo:   
 `carta = {value = 1; suit = Espada}`   
@@ -49,7 +49,7 @@ En este archivo se utilizaron los siguientes modulos de Ocaml:
  * [**String**][S].
    
 ---
-##jugador.ml  
+## jugador.ml  
   
 En este archivo implementamos la estructura del jugador (**player**) tambien con los **records** de **Ocaml**. Definimos a jugador como una estructura de 4 campos, un *String* para el nombre , un entero para su puntaje y dos listas tipo **deck** (baraja), una para la baraja que tendria en mano y otra para guardar las cartas que ya haya jugado. Entonces un jugador seria por ejemplo:   
    
@@ -95,7 +95,7 @@ En este archivo se utilizaron los siguientes modulos de Ocaml e implementados:
 `make`
 
 ---
-###**Notas:**
+### **Notas:**
  
 *No encontramos en las consignas un estilo de codigo, tampoco conseguimos un corrector de estilo de codigo de google para Ocaml.*    
      
@@ -104,7 +104,7 @@ En este archivo se utilizaron los siguientes modulos de Ocaml e implementados:
 *En este laboratorio tuvimos muchos problemas en un principio por que programar funcionalmente no es como "andar en bicicleta", es decir, a diferencia de andar en bici, si se olvida. Pero por suerte pudimos "re-aprender". Personalmente, la materia nos entrega en cada lab un desafio, que un principio hace que "odiemos" el lenguaje del respectivo lab pero a fin de cuentas nos terminamos "amigando" con el pero solo unos segundos porque es justo cuando hay que entregarlo...*
    
 ---  
-###**Bibliografia**:
+### **Bibliografia**:
 
  * [stackoverflow][W]
  * [Ocaml official web page][O]
